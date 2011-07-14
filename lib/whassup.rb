@@ -35,6 +35,14 @@ module Whassup
     end
   end
 
+  def check_all
+    locations.each { |loc| loc.check }
+  end
+
+  def reset_all
+    locations.each { |loc| loc.reset }
+  end
+
   def check(url)
     Location.check(url)
   end
@@ -55,7 +63,7 @@ module Whassup
     self.redis
   end
 
-  def sites
+  def locations
     Location.all
   end
 
@@ -70,6 +78,10 @@ module Whassup
 
   def delete(key)
     redis.del(key)
+  end
+
+  def empty(key)
+    redis.ltrim(key, -1, -1)
   end
 
 end

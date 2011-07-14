@@ -1,7 +1,9 @@
 .grid_8
   
   %h3 History
-  
+  %div
+    %a{ :href=> "/locations/check" } Check all
+    %a{ :href=> "/locations/reset" } Reset all
   - Whassup.history.each do |location, history|
     %div
       %p

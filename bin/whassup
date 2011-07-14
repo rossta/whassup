@@ -50,6 +50,10 @@ def history(url)
   end
 end
 
+def reset(url)
+  Whassup.reset_all
+end
+
 result = case ARGV[0]
 when 'check'
   check ARGV[1]
@@ -57,6 +61,8 @@ when 'history'
   history ARGV[1]
 when 'remove'
   remove ARGV[1]
+when 'reset'
+  reset ARGV[1]
 else
   parser.help
 end

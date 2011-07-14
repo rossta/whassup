@@ -38,6 +38,16 @@ module Whassup
       haml :index, :layout => :'layouts/default', :whassup => Whassup
     end
 
+    get '/locations/check' do
+      Whassup.check_all
+      redirect '/'
+    end
+
+    get '/locations/reset' do
+      Whassup.reset_all
+      redirect '/'
+    end
+
     get '/about' do
       haml :about, :layout => :'layouts/default'
     end

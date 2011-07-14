@@ -8,7 +8,7 @@ module Whassup
     def self.check(url)
       find(url).check
     end
-    
+
     def self.remove(url)
       find(url).remove
     end
@@ -47,7 +47,11 @@ module Whassup
       Whassup.push(key, code)
       code
     end
-    
+
+    def reset
+      Whassup.empty(key)
+    end
+
     def remove
       Whassup.delete(key)
     end
