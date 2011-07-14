@@ -25,7 +25,7 @@
     .container_12
       .grid_12
         %h1 whassup
-        %h4 Time.now.strftime('%I:%M:%S, %B %d %Y')
+        %h6= Time.now.strftime('%I:%M:%S, %B %d %Y')
 
       = yield
 

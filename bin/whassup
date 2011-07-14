@@ -1,12 +1,7 @@
 #!/usr/bin/env ruby
 
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/../lib')
-begin
-  require 'redis-namespace'
-rescue LoadError
-  require 'rubygems'
-  require 'redis-namespace'
-end
+require 'rubygems'
 require 'whassup'
 require 'optparse'
 
@@ -44,6 +39,10 @@ def check(url)
   end
 end
 
+def remove(url)
+  Whassup.remove(url)
+end
+
 def history(url)
   puts "** history #{url}"
   Whassup.history(url).map do |location, history|
@@ -56,6 +55,8 @@ when 'check'
   check ARGV[1]
 when 'history'
   history ARGV[1]
+when 'remove'
+  remove ARGV[1]
 else
   parser.help
 end

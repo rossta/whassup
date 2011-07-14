@@ -1,3 +1,5 @@
+require 'redis-namespace'
+
 require 'whassup/version'
 require 'whassup/location'
 require 'whassup/host'
@@ -41,6 +43,10 @@ module Whassup
     Location.history(url)
   end
 
+  def remove(url)
+    Location.remove(url)
+  end
+
   # Returns the current Redis connection. If none has been created, will
   # create a new one.
   def redis
@@ -60,6 +66,10 @@ module Whassup
 
   def range(key)
     redis.lrange(key, 0, 10)
+  end
+
+  def delete(key)
+    redis.del(key)
   end
 
 end

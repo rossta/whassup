@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "sinatra",         ">= 1.0.0"
   s.add_dependency "curb"
   s.add_dependency "haml"
+  s.add_dependency "sass"
   # s.add_dependency "json",            ">= 1.4.6", "< 1.6"
 
   s.description = <<-description

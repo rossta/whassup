@@ -6,7 +6,11 @@ module Whassup
   class Location
 
     def self.check(url)
-      Location.find(url).check
+      find(url).check
+    end
+    
+    def self.remove(url)
+      find(url).remove
     end
 
     def self.history(url = nil)
@@ -42,6 +46,10 @@ module Whassup
       code = curl.response_code
       Whassup.push(key, code)
       code
+    end
+    
+    def remove
+      Whassup.delete(key)
     end
 
     def host

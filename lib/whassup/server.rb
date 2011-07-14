@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'haml'
 require 'sass'
+require 'whassup'
 
 module Whassup
   class Server < Sinatra::Base
@@ -34,7 +35,7 @@ module Whassup
     end
 
     get '/' do
-      haml :index, :layout => :'layouts/default'
+      haml :index, :layout => :'layouts/default', :whassup => Whassup
     end
 
     get '/about' do

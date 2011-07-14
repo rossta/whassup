@@ -1,3 +1,10 @@
 .grid_8
-  THIS IS THE INDEX
+  
+  %h3 History
+  
+  - Whassup.history.each do |location, history|
+    %div
+      %p
+        %strong= location
+      %p= "History: #{history.join(' ')}"
 
