@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__) + '/../lib')
+begin
+  require 'redis-namespace'
+rescue LoadError
+  require 'rubygems'
+  require 'redis-namespace'
+end
+require 'whassup'
+require 'optparse'
+
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: whassup [options] COMMAND"
+
+  opts.separator ""
+  opts.separator "Options:"
+
+  opts.on("-r", "--redis [HOST:PORT]", "Redis connection string") do |host|
+    Whassup.redis = host
+  end
+
+  opts.on("-N", "--namespace [NAMESPACE]", "Redis namespace") do |namespace|
+    Whassup.redis.namespace = namespace
+  end
+
+  opts.on("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+
+  opts.separator ""
+  opts.separator "Commands:"
+  opts.separator "  check URL       curls url and stores response code"
+  opts.separator "  history [URL]   see whassup history for given or all urls"
+end
+
+def check(url)
+  puts "Whassup?"
+
+  begin
+    puts "** checking #{url}"
+    Whassup.check(url)
+  end
+end
+
+def history(url)
+  puts "** history #{url}"
+  Whassup.history(url).map do |location, history|
+    "#{location}:\t#{history.join(' ')}"
+  end
+end
+
+result = case ARGV[0]
+when 'check'
+  check ARGV[1]
+when 'history'
+  history ARGV[1]
+else
+  parser.help
+end
+
+puts result

@@ -1,0 +1,31 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "UTF-8"}/
+    %title start
+    %link{:rel => 'stylesheet', :href => "/css/reset.css"}
+    %link{:rel => 'stylesheet', :href => "/css/960.css"}
+    %link{:rel => 'stylesheet', :href => "/css/text.css"}
+    %link{:rel => 'stylesheet', :href => "/style.css"}
+
+    %script{:src => "/js/jquery.min.js"}
+    %script{:src => "/js/jquery-ui-1.8.1.custom.min.js"}
+
+  %body
+    .top_nav_wrapper
+      .container_12
+        .grid_12
+          = link_to_unless_current("home", "/")
+          |
+          = link_to_unless_current("about", "/about")
+          |
+          = link_to_unless_current("form", "/form")
+      .clear
+
+    .container_12
+      .grid_12
+        %h1 whassup
+        %h4 Time.now.strftime('%I:%M:%S, %B %d %Y')
+
+      = yield
+
