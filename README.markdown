@@ -29,6 +29,6 @@ Whassup currently supports the following check types:
 Emails notifications can be configured to be sent to any number of contacts 
 based on how long the site/server has to be down before alerts are sent. 
 
-The Whassup frontend displays the current and historical status of uptime checks,
-provides an interface for adding and editing checks and contacts for receiving 
+The Whassup frontend displays the current and historical status of uptime checks 
+and provides an interface for adding and editing checks and contacts for receiving 
 notifications.

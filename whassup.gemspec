@@ -13,7 +13,9 @@ Gem::Specification.new do |s|
   s.files             = %w( README.markdown Rakefile LICENSE HISTORY.md )
   s.files            += Dir.glob("lib/**/*")
   s.files            += Dir.glob("bin/**/*")
-  # s.files            += Dir.glob("test/**/*")
+  s.files            += Dir.glob("spec/**/*")
+  s.files            += Dir.glob("tasks/**/*")
+
   s.executables       = [ "whassup", "whassup-web" ]
 
   s.extra_rdoc_files  = [ "LICENSE", "README.markdown" ]
@@ -25,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency "curb"
   s.add_dependency "haml"
   s.add_dependency "sass"
+  s.add_dependency "i18n"
   # s.add_dependency "json",            ">= 1.4.6", "< 1.6"
 
   s.description = <<-description
@@ -33,10 +36,10 @@ Gem::Specification.new do |s|
 
     Whassup was created because I had a number of urls to monitor in different
     contexts and I didn't want to pay for something I could build myself. It is
-    heavily inspired by Resque (which rocks) and is comprised of three parts:
+    heavily inspired by Resque and is comprised of three parts:
 
     * A Ruby library for creating, querying, and monitoring urls
     * A Rake task for starting service
     * A Sinatra app for monitoring urls
-description
+  description
 end

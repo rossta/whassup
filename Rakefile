@@ -3,6 +3,9 @@ require "bundler/setup"
 
 require 'rake/testtask'
 
+$LOAD_PATH.unshift 'lib'
+require 'whassup/tasks'
+
 task :default => :test
 
 namespace :db do
@@ -23,4 +26,3 @@ namespace :db do
   task :clean do
   end
 end
-
