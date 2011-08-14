@@ -10,10 +10,8 @@ and sending notifications when downtime occurs.
 
 It is comprised of three parts:
 
-1. A Ruby library for exposing uptime end-points from an applicaiton
-2. A Rake task for starting a worker to perform checks and send notifications
-3. A Sinatra app for managing checks and notifications
-4. A status bar application for Mac users
+1. A Rake task for starting a worker to perform checks
+3. A Sinatra app for viewing uptime checks
 
 Whassup currently supports the following check types:
 
@@ -23,6 +21,13 @@ The Whassup frontend displays the current and historical status of uptime checks
 
 Coming Soon
 -----------
+
+Features for future development:
+
+1. A Ruby library for exposing uptime end-points from an applicaiton
+2. Send notifications
+3. A Sinatra app for managing checks and notifications
+4. A status bar application for Mac users
 
 Whassup wants to support additional check types:
 
