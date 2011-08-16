@@ -11,4 +11,5 @@ require 'whassup/server'
 # end
 
 use Rack::ShowExceptions
+Whassup.redis = 'localhost:6379/rossta'
 run Whassup::Server.new

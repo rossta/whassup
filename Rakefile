@@ -6,7 +6,7 @@ require 'rake/testtask'
 $LOAD_PATH.unshift 'lib'
 require 'whassup/tasks'
 
-task :default => :test
+task :default => :spec
 
 namespace :db do
 
